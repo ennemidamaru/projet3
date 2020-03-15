@@ -1,13 +1,9 @@
 <?php 
-
-
-    try
-    {
-        $bdd = new PDO('mysql:host=localhost;dbname=projet3;charset=utf8', 'root', '');
-        return $bdd;
+   	$bdd_username = 'root';
+    $bdd_password = '';
+    try {
+        $bdd = new PDO('mysql:host=localhost;dbname=projet3', $bdd_username, $bdd_password);
+    } catch (PDOException $e) {
+        echo 'could not connect to database : ' . $e->getMessage();
     }
-
-    catch (Exception $e)
-    {
-        die('Erreur : ' . $e->getMessage());
-    }    
+    return $bdd;
